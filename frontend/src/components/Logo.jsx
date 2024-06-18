@@ -1,8 +1,7 @@
-
 import '../assets/css/Logo.scss';
 import cn from 'classnames';
 
-const PRIMARY_PALETTE   = ['#BC9CFF', '#8BA4F9'];
+const PRIMARY_PALETTE = ['#BC9CFF', '#8BA4F9'];
 const AUXILIARY_PALLETE = ['#6FCF97', '#66D2EA'];
 const TEXT_COLOR = '#1F2041';
 
@@ -19,24 +18,24 @@ const logoSizes = {
 
 const LinearGradient = ({ primaryTone, auxiliaryTone, id }) => (
   <defs>
-    <linearGradient id={id} gradientTransform='rotate(90)'>
-      <stop offset='0%' stopColor={primaryTone} />
-      <stop offset='100%' stopColor={auxiliaryTone} />
+    <linearGradient id={id} gradientTransform="rotate(90)">
+      <stop offset="0%" stopColor={primaryTone} />
+      <stop offset="100%" stopColor={auxiliaryTone} />
     </linearGradient>
   </defs>
 );
 
 const LogoSvgFigure = ({
-    isColored,
-    width,
-    height,
-    viewBox,
-    className,
-    primaryTone,
-    auxiliaryTone,
-    d,
-    id,
-  }) => (
+  isColored,
+  width,
+  height,
+  viewBox,
+  className,
+  primaryTone,
+  auxiliaryTone,
+  d,
+  id,
+}) => (
   <svg
     className={className}
     width={width}
@@ -53,7 +52,7 @@ const LogoSvgFigure = ({
     <path
       d={d}
       fill={isColored ? `url(#${id})` : TEXT_COLOR}
-      fillOpacity={isColored ? "1" : "0.25"}
+      fillOpacity={isColored ? '1' : '0.25'}
     />
   </svg>
 );
@@ -61,7 +60,7 @@ const LogoSvgFigure = ({
 const LogoCircle = ({ isColored, id }) => (
   <LogoSvgFigure
     id={id}
-    className={'logo__circle'}
+    className="logo__circle"
     isColored={isColored}
     width="100%"
     height="100%"
@@ -75,7 +74,7 @@ const LogoCircle = ({ isColored, id }) => (
 const LogoLeftBranch = ({ isColored, id }) => (
   <LogoSvgFigure
     id={id}
-    className={'logo__left-branch'}
+    className="logo__left-branch"
     isColored={isColored}
     width="31.25%"
     height="31.25%"
@@ -89,7 +88,7 @@ const LogoLeftBranch = ({ isColored, id }) => (
 const LogoRightBranch = ({ isColored, id }) => (
   <LogoSvgFigure
     id={id}
-    className={'logo__right-branch'}
+    className="logo__right-branch"
     isColored={isColored}
     width="25%"
     height="16.66667%"
@@ -139,15 +138,13 @@ const Logo = ({
   isSigned,
   id,
 }) => {
-  console.log(isColored)
-
   const logoClassName = cn('logo', {
-    'logo_colored': isColored,
+    logo_colored: isColored,
   });
 
   const logoContainerClassName = cn('logo__container', {
     'logo__container_size_2.5rem': (size === logoSizes.small),
-    'logo__container_size_3rem': (size === logoSizes.mid),
+    logo__container_size_3rem: (size === logoSizes.mid),
   });
 
   return (
@@ -163,3 +160,5 @@ const Logo = ({
 };
 
 export default Logo;
+
+export { logoSizes };

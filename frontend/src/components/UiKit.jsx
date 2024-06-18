@@ -1,14 +1,20 @@
-import * as _ from 'lodash';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import Logo from './Logo';
+import routes from '../routes';
 
-const UiKit = () => (
-  <div>
-    <Logo isColored={true} id={_.uniqueId()} />
-    <Logo isSigned={true} id={_.uniqueId()} />
-    <Logo isColored={true} isSigned={true} id={_.uniqueId()} />
-    <Logo size='mid' isColored={true} isSigned={true} id={_.uniqueId()} />
-  </div>
-);
+const UiKit = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t('uiKit.title');
+  }, []);
+
+  return (
+    <div>
+      <a href={routes.colorsAndTypes()}>{t('uiKit.pages.colorsAndTypes')}</a>
+    </div>
+  );
+};
 
 export default UiKit;

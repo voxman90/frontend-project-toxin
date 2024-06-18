@@ -1,0 +1,84 @@
+@use 'sass:math';
+
+@mixin clearfix() {
+  content: '';
+  clear: both;
+  display: block;
+  width: 100%;
+}
+
+@mixin flip-horizontally() {
+  -webkit-transform: scaleX(-1);
+     -moz-transform: scaleX(-1);
+       -o-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+@mixin cancel-heading-style() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin cancel-list-style() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin cancel-fieldset-style() {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@mixin cancel-link-style() {
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+@mixin vertical-align-centering() {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+@mixin square-ratio() {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+@mixin non-selectable() {
+      -ms-user-select: none;
+     -moz-user-select: none;
+  -webkit-user-select: none;
+          user-select: none;
+
+  &::-moz-selection {
+    background: transparent;
+  }
+
+  &::selection {
+    background: transparent;
+  }
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/* f(x):[a, b] --> [c, d], b =\= a
+ * f(x) = (d - c)(x - a)/(b - a) + c, f(a) = c, f(b) = d
+ */
+@function segment($a, $b, $c, $d) {
+  $ab: strip-unit($b - $a);
+  $dc: strip-unit($d - $c);
+  @return calc((#{$dc} / #{$ab}) * (100% - #{$a}) + #{$c});
+}

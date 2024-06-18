@@ -1,0 +1,27 @@
+@use 'sass:color';
+
+$dark-shade: #1F2041;
+$primary: #BC9CFF;
+$primary-gradient: #8BA4F9;
+$secondary: #6FCF97;
+$secondary-gradient: #66D2EA;
+
+@function dark-shade($alpha) {
+  @return rgba($dark-shade, $alpha);
+}
+
+$dark-shade-05: dark-shade(0.05);
+$dark-shade-25: dark-shade(0.25);
+$dark-shade-50: dark-shade(0.50);
+$dark-shade-75: dark-shade(0.75);
+$dark-shade-100: dark-shade(1);
+
+$primary-50: color.adjust($primary, $alpha: -0.5);
+$primary-gradient-50: color.adjust($primary-gradient, $alpha: -0.5);
+$secondary-50: color.adjust($secondary, $alpha: -0.5);
+$secondary-gradient-50: color.adjust($secondary-gradient, $alpha: -0.5);
+
+$primary-darken-10: color.adjust($primary, $lightness: -10%);
+$primary-gradient-darken-10: color.adjust($primary-gradient, $lightness: -10%);
+$secondary-darken-10: color.adjust($secondary, $lightness: -10%);
+$secondary-gradient-darken-10: color.adjust($secondary-gradient, $lightness: -10%);

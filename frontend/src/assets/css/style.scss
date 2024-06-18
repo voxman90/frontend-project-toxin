@@ -1,0 +1,14 @@
+@import 'normalize';
+@import 'fonts';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F4F4F6;
+
+  font-family: sans-serif;
+  font-size: 16px;
+  color: black;
+}
